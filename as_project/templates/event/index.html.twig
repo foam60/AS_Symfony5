@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col l12 s12">
+                <b></b><h4>{{ eventNumber }} Evenements</h4></b>
+            </div>
+            {% for event in events %}
+                <div class="col l12 m10 s12">
+                    <div class="card small horizontal hoverable">
+                        <div class="card-image">
+                            <img class="responsive-img" src="Assets/Images/{{ event.vignette }}">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content" style="margin-top: -0.9rem">
+                                <p class="card-title">{{ event.nom }}</p>
+                                <div class="valign-wrapper" style="margin-bottom: 1rem; margin-top: 0.6rem">
+                                    <span class="valign-wrapper"><i class="grey-text material-icons">date_range</i>{{ event.datedebut }}</span>
+                                    <span class="valign-wrapper"style="margin-left: 12%"><i class="grey-text material-icons">date_range</i>{{ event.nombreplaces }}</span>
+                                    <span class="valign-wrapper"style="margin-left: 12%"><i class="grey-text material-icons">date_range</i>{{ event.categorieid }}</span>
+                                    <span class="valign-wrapper"style="margin-left: 12%"><i class="grey-text material-icons">date_range</i>{{ event.sportid }}</span>
+                                </div>
+                                <p>{{ event.description }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{{
+                                    path('evenement',
+                                    {'id': event.id})
+                                }}">Voir l'événement</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

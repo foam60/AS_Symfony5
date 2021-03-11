@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col l5 s12" style="margin-top: 4.5rem">
+                        <h4>Connectez-vous</h4>
+                        <div class="input-field">
+                            <input id="inputEmail" type="email" class="form-control validate" name="email" required autofocus>
+                            <label for="inputEmail" class="active">Email</label>
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                        </div>
+                        <div class="input-field">
+                            <input id="inputPassword" type="password" class="form-control validate" name="password" required>
+                            <label for="inputPassword" class="active">Mot de passe</label>
+                        </div>
+                        <button class="btn" type="submit">Continuer</button>
+                    </div>
+                    <div class="col l6 s12 right" style="margin-top: 4.5rem;">
+                        <h4 style="margin-bottom: 1.5rem">Pas encore de compte ?</h4>
+                        <h5>Vous êtes étudiant et vous n'avez pas encore de compte sur la plateforme ?</h5>
+                        <button class="btn black" style="margin-top: 1.5rem">Accéder au formulaire d'inscription</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</form>
+
+{% endblock %}
+

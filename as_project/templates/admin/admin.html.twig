@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="wrapper">
+            <h4>Ajouter un événement</h4>
+            <h6 style="margin-top: 1.9rem; margin-bottom: 1.9rem">Informations générales</h6>
+            <div class="col l6 m6 s12 left">
+                <div class="col s12">
+                    {{ form_label(form.nom) }}
+                    {{ form_errors(form.nom) }}
+                    {{ form_widget(form.nom) }}
+                </div>
+                <div class="col s12">
+                    {{ form_label(form.nombre_places) }}
+                    {{ form_errors(form.nombre_places) }}
+                    {{ form_widget(form.nombre_places) }}
+                </div>
+                <div class="col l6 s12">
+                    {{ form_label(form.date_debut) }}
+                    {{ form_errors(form.date_debut) }}
+                    {{ form_widget(form.date_debut) }}
+                </div>
+                <div class="col l6 s12">
+                    {{ form_label(form.date_fin) }}
+                    {{ form_errors(form.date_fin) }}
+                    {{ form_widget(form.date_fin) }}
+                </div>
+                <div class="col s12" style="margin-top: 1rem">
+                    <label>Categorie</label>
+                    {{ form_errors(form.categorie_id) }}
+                    {{ form_widget(form.categorie_id) }}
+                </div>
+                <div class="col s12" style="margin-top: 1rem">
+                    <label>Sport(s)</label>
+                    {{ form_errors(form.sport_id) }}
+                    {{ form_widget(form.sport_id) }}
+                </div>
+                <div class="col s12" style="margin-top: 1rem; margin-bottom: 1.3rem">
+                    <label>Type</label>
+                    {{ form_errors(form.type_id) }}
+                    {{ form_widget(form.type_id) }}
+                </div>
+                <div class="col s12" style="margin-top: 1rem">
+                    {{ form_label(form.vignette) }}
+                    {{ form_errors(form.vignette) }}
+                    {{ form_widget(form.vignette) }}
+                </div>
+                <div class="col s12" style="margin-top: 2.5rem;margin-left: 0.19rem">
+                    {{ form_label(form.image) }}
+                    {{ form_errors(form.image) }}
+                    {{ form_widget(form.image) }}
+                </div>
+                <div class="col s12" style="margin-top: 3rem">
+                    {{ form_widget(form.save, { 'label': 'Ajouter' }) }}
+                </div>
+            </div>
+            <div class="col l6 m6 s12 right">
+                <div class="col s12">
+                    {{ form_label(form.description) }}
+                    {{ form_errors(form.description) }}
+                    {{ form_widget(form.description) }}
+                </div>
+                <div class="col s12" style="margin-top: 2.5rem">
+                    <h5>Documents associés</h5>
+                    <div class="col s12 card-panel" style="margin-top: 0.3rem">
+                        <div class="col s12">
+                            <label>Nom</label>
+                            {{ form_errors(form.nom_fichier) }}
+                            {{ form_widget(form.nom_fichier) }}
+                        </div>
+                        <div class="col s12">
+                            <label>Description</label>
+                            {{ form_errors(form.description_fichier) }}
+                            {{ form_widget(form.description_fichier) }}
+                        </div>
+                        <div class="col s12">
+                            <label>Categorie</label>
+                            {{ form_errors(form.categorie_fichier) }}
+                            {{ form_widget(form.categorie_fichier) }}
+                        </div>
+                        <div class="col s12" style="margin-top: 1rem; margin-bottom: 1.7rem">
+                            <label>Document</label>
+                            {{ form_errors(form.fichier) }}
+                            {{ form_widget(form.fichier) }}
+                        </div>
+                        <div class="col s12" style="margin-bottom: 1.5rem">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter un document
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        {% block javascripts %}
+            <!--Import jQuery before materialize.js-->
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js" integrity="sha512-oHBLR38hkpOtf4dW75gdfO7VhEKg2fsitvHZYHZjObc4BPKou2PGenyxA5ZJ8CCqWytBx5wpiSqwVEBy84b7tw==" crossorigin="anonymous"></script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+
+        {% block stylesheets %}
+
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--CSS -->
+        <link href="{{ asset("Assets/acceuil.css") }}" rel="stylesheet">
+    </head>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <ul id="nav" class="right">
+                    <li><a href="{{ path("home") }}">Accueil</a></li>
+                    <li><a href="{{ path("event") }}">Evenement</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li><a href="{{ path("account") }}">Mon Compte</a></li>
+                    {%endif%}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path("admin") }}">Admin</a></li>
+                    {%endif%}
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li><a href="{{ path("app_logout") }}">Déconnexion</a></li>
+                    {%endif%}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l4 m4 s12">
+                    <h5 class="white-text text-bold">Association Sportive Saint-Vincent</h5>
+                    <span class="grey-text text-lighten-4">30 Rue de Meaux, 60300 Senlis</span>
+                    <h5 class="white-text" style="margin-top: 1.5rem">Association Saint-Vincent</h5>
+                    <span class="grey-text text-lighten-5">https://www.lycee-stvincent.fr/</span>
+                </div>
+                <div class="col l4 m3 s12">
+                    <h5 class="white-text">Nous Contacter</h5>
+                    <ul>
+                        <li class="grey-text text-lighten-4">Tél : 03 66 66 66 66</li>
+                        <li class="grey-text text-lighten-4">Fax : 03 44 66 66 66</li>
+                        <li class="grey-text text-lighten-4">Email : contacts@lyceestvincent.fr</li>
+                        <li class="grey-text text-lighten-4">Web : https://www.asso-sport.lyceestvincent.fr/</li>
+                    </ul>
+                </div>
+                <div class="col l2 m3 s12">
+                    <h5 class="white-text">Accès rapide</h5>
+                    <ul>
+                        <li class="grey-text text-lighten-4">> Acceuil</li>
+                        <li class="grey-text text-lighten-4">> Actualités</li>
+                        <li class="grey-text text-lighten-4">> Evénements</li>
+                        <li class="grey-text text-lighten-4">> Contact</li>
+                    </ul>
+                </div>
+                <div class="col l2 m2 s12">
+                    <h5 class="white-text">Suivez-nous</h5>
+                    <img src="{{ asset('Assets/Images/facebook.png') }}" alt="facebool_svg" height="35px" width="35px">
+                    <img src="{{ asset('Assets/Images/twitter.png') }}" alt="twitter_svg" height="35px" width="35px" style="margin-left: 0.5rem">
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

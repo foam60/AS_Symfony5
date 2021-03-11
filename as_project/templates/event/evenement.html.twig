@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h4>{{ event.nom }}</h4>
+        <div class="valign-wrapper" style="margin-bottom: 1rem; margin-top: 0.6rem">
+            <span class="valign-wrapper"><i class="grey-text material-icons" style="margin-right: 0.4rem">date_range</i>{{ event.datedebut }} au {{ event.datefin }}</span>
+            <span class="valign-wrapper"style="margin-left: 9%"><i class="grey-text material-icons" style="margin-right: 0.4rem">person</i>{{ event.nombreplaces }} places disponibles</span>
+        </div>
+        <div class="valign-wrapper">
+            <p style="font-weight: bold">Sport : </p>
+            <p style="margin-left: 0.3rem"> {{ event.sportid }}</p>
+        </div>
+        <div class="valign-wrapper" style="margin-bottom: -1.65rem; margin-top: -1.65rem">
+            <p style="font-weight: bold">Type : </p>
+            <p style="margin-left: 0.3rem"> {{ event.typeid }}</p>
+        </div>
+        <div class="valign-wrapper">
+            <p style="font-weight: bold">Catégorie : </p>
+            <p style="margin-left: 0.3rem"> {{ event.categorieid }}</p>
+        </div>
+        <img class="responsive-img" src="../Assets/Images/{{ event.image }}">
+        <div class="col l10 s12">
+            <h5 style="font-weight: bold">Boostrap Heading</h5>
+            <p>{{ event.description }}</p>
+            <h5 style="font-weight: bold">Inscription</h5>
+            <p>Quoi ! j’aimerais, se disait-elle, j’aurais de l’amour ! Moi, femme mariée, je serais amoureuse ! mais, se disait-elle, je n’ai jamais éprouvé pour mon mari cette sombre folie, qui fait que je ne puis détacher ma pensée de Julien. Au fond ce n’est qu’un enfant plein de respect pour moi ! Cette folie sera passagère. Qu’importe à mon mari les sentiments que je puis avoir pour ce jeune homme ! M. de Rênal serait ennuyé des conversations que j’ai avec Julien, sur des choses d’imagination. Lui, il pense à ses affaires. Je ne lui enlève rien pour le donner à Julien.
+            </p>
+        </div>
+        <div class="col l12 s12">
+            <h5 style="font-weight: bold;margin-top: 4.5rem">Documents à télécharger</h5>
+            <table class="responsive-table highlight centered bordered">
+                <thead>
+                <tr>
+                    <th data-field="id">Nom du document</th>
+                    <th data-field="date">Date ajout</th>
+                    <th data-field="categorie">Catégorie</th>
+                    <th data-field="taille">Taille</th>
+                    <th data-field="action">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ event.nomfichier }}</td>
+                    <td>12/10/2018</td>
+                    <td>{{ event.categoriefichier }}</td>
+                    <td>500Ko</td>
+                    <td><a class="waves-effect waves-light btn-small"><i class="material-icons left">file_download</i>Télécharger</a></td>
+                </tr>
+                <tr>
+                    <td>{{ event.nomfichier }}</td>
+                    <td>12/10/2019</td>
+                    <td>{{ event.categoriefichier }}</td>
+                    <td>200Ko</td>
+                    <td><a class="waves-effect waves-light btn-small"><i class="material-icons left">file_download</i>Télécharger</a></td>
+                </tr>
+                <tr>
+                    <td>{{ event.nomfichier }}</td>
+                    <td>12/10/2012</td>
+                    <td>{{ event.categoriefichier }}</td>
+                    <td>800Ko</td>
+                    <td><a class="waves-effect waves-light btn-small"><i class="material-icons left">file_download</i>Télécharger</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="col s12" style="margin-top: 3rem">
+                <button class="waves-light btn"><i class="material-icons left">person</i>Inscription</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
